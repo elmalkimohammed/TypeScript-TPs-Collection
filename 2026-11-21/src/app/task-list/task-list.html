@@ -1,0 +1,12 @@
+
+<input type="text" placeholder="Type the name of the task" [value]="addedTaskName()" (input)="addedTaskName.set($any($event.target).value)" (keyup.enter)="addTask()" >
+
+@if (tasks().length === 0) {
+    <p>Aucun tâche pour l'instant</p>
+} @else {
+    <ul>
+        @for (task of tasks(); track task.id) {
+            <li>{{ task.title | uppercase }}</li>
+        }
+    </ul>
+}
